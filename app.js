@@ -23,6 +23,6 @@ var express = require('express'),
 
 
 
-// app.listen(4000, function(){
-//   console.log("Started on port 4000");
-// });
+app.listen(4000, function(){
+  console.log("Started on port 4000");
+});
