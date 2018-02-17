@@ -1,0 +1,56 @@
+/* Beginning */
+
+html, body{
+  overflow-x: hidden;
+  background: #f8f9fa;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Navbar Stage */
+
+.container .navbar-brand {
+  font-size: 3em;
+}
+
+/* Stage One */
+
+#one{
+  height: 800px;
+  background-image: url(/images/technology.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#one h1 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+#one p{
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+
+#one #firstOne{
+  padding-top: 12.5%;
+}
+
+/* Footer */
+
+.footer {
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3em;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+}
