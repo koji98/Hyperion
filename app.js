@@ -30,10 +30,11 @@ var express = require('express'),
     });
 
     app.get('/user', function(req, res){
-      con.connect(function(err) {
-      if (err) throw err;
       con.query("SELECT * FROM users WHERE Name = 'Ogechi Duru'", function (err, result, fields) {
-        if (err) throw err;
+        if (err) {
+          throw err;
+          con.end();
+        }
         var user = result[0];
         con.query("SELECT * FROM users WHERE NOT Name = '"+result[0]['Name']+"'", function (err, result, fields) {
           var neighbors = result;
@@ -41,38 +42,37 @@ var express = require('express'),
         });
       });
     });
-    });
 
     app.get('/enter', function(req, res){
       res.render("enter");
     });
 
     app.post('/register', function(req, res){
-      con.connect(function(err){
-        if(err){
-          throw err;
-        } else {
-            con.query("SELECT Email FROM users", function(err, result, fields){
-              if(err){
-                throw err;
-              } else {
-                for(var i = 0; i < result.length; i++){
-                  if(result[i]['Email'] == req.body.newUser.email){
-                    alert('Email already exists');
-                    return;
-                  }
-                }
-                let name = req.body.newUser.name;
-                let location = req.body.newUser.location;
-                let email = req.body.newUser.email;
-                let password = req.body.newUser.password;
-
-
-                con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Password`) VALUES ('Hey', 'Nice', 'Job', 'Chidi')");
-              }
-            });
-        }
-      });
+      // con.connect(function(err){
+      //   if(err){
+      //     throw err;
+      //   } else {
+      //       con.query("SELECT Email FROM users", function(err, result, fields){
+      //         if(err){
+      //           throw err;
+      //         } else {
+      //           for(var i = 0; i < result.length; i++){
+      //             if(result[i]['Email'] == req.body.newUser.email){
+      //               alert('Email already exists');
+      //               return;
+      //             }
+      //           }
+      //           let name = req.body.newUser.name;
+      //           let location = req.body.newUser.location;
+      //           let email = req.body.newUser.email;
+      //           let password = req.body.newUser.password;
+      //
+      //
+      //           con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Password`) VALUES ('Hey', 'Nice', 'Job', 'Chidi')");
+      //         }
+      //       });
+      //   }
+      // });
 
 
       //

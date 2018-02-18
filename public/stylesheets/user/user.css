@@ -16,12 +16,14 @@ html, body{
 .box {
   text-align: center;
   background-color: #009688;
+  color: white;
+  text-shadow: 2px 2px 8px black;
 }
 
 /* Stage One */
 
 #one{
-  height: 800px;
+  height: 500px;
 }
 
 #one h1 {
@@ -36,17 +38,35 @@ html, body{
 
 }
 
+#name {
+  font-size: 1.5em;
+}
+
+h2 {
+  line-height:2.5em;
+  letter-spacing: 2px;
+}
+
 #one #firstOne{
   padding-top: 12.5%;
 }
 
+.info {
+  text-align: left;
+}
+
+
 /* Stage Two */
 
 #two {
-  height: 800px;
+  padding-top: 15px;
+  text-shadow: none;
   background: #f8f9fa;
-
+  color: black;
 }
+
+
+
 
 #two #firstTwo{
   padding-top: 10%;
@@ -54,6 +74,8 @@ html, body{
 
 .neighbor {
   margin: 0 auto;
+  padding: 20px 0 20px 0;
+  margin: 0;
 }
 
 /* Stage Three */
