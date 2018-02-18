@@ -1,5 +1,14 @@
 var express = require('express'),
     request = require('request'),
+
+    mysql = require('mysql');
+
+    con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      database: "Hyperion"
+    });
+
     app = express();
 
     app.set('view engine', 'ejs');
@@ -18,7 +27,15 @@ var express = require('express'),
     });
 
     app.get('/user', function(req, res){
-      res.render('user');
+      var user = "";
+      con.connect(function(err) {
+      if (err) throw err;
+      con.query("SELECT * FROM users WHERE Name = 'Ogechi Duru'", function (err, result, fields) {
+        if (err) throw err;
+        user = result[0];
+        res.render('user', {user : user});
+      });
+    });
     });
 
 
