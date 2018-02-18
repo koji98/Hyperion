@@ -48,31 +48,25 @@ var express = require('express'),
     });
 
     app.post('/register', function(req, res){
-      con.connect(function(err){
+      con.query("SELECT Email FROM users", function(err, result, fields){
         if(err){
           throw err;
         } else {
-            con.query("SELECT Email FROM users", function(err, result, fields){
-              if(err){
-                throw err;
-              } else {
-                for(var i = 0; i < result.length; i++){
-                  if(result[i]['Email'] == req.body.newUser.email){
-                    alert('Email already exists');
-                    return;
-                  }
-                }
-                let name = req.body.newUser.name;
-                let location = req.body.newUser.location;
-                let email = req.body.newUser.email;
-                let password = req.body.newUser.password;
+          for(var i = 0; i < result.length; i++){
+            if(result[i]['Email'] == req.body.newUser.email){
+              alert('Email already exists');
+              return;
+            }
+          }
+          let name = req.body.newUser.name;
+          let location = req.body.newUser.location;
+          let email = req.body.newUser.email;
+          let password = req.body.newUser.password;
 
 
-                con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Passwords`) VALUES ("+name+", "+location+", "+email+", "+password+")");
+          con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Passwords`) VALUES ("+name+", "+location+", "+email+", "+password+")");
 
-                res.redirect("address");
-              }
-            });
+          res.redirect("address");
         }
       });
 
@@ -84,26 +78,20 @@ var express = require('express'),
     });
 
     app.post('/login', function(req, res){
-      con.connect(function(err){
+      con.query("SELECT Email FROM users", function(err, result, fields){
         if(err){
           throw err;
         } else {
-            con.query("SELECT Email FROM users", function(err, result, fields){
-              if(err){
-                throw err;
-              } else {
-                for(var i = 0; i < result.length; i++){
-                  if(result[i]['Email'] == req.body.newUser.email){
-                    var name = request.body.newUser.name;
-                    res.render("users", {name : name});
-                  }
-                  else {
-                    alert('Wrong email or password');
-                    return;
-                  }
-                }
-              }
-            });
+          for(var i = 0; i < result.length; i++){
+            if(result[i]['Email'] == req.body.newUser.email){
+              var name = request.body.newUser.name;
+              res.render("users", {name : name});
+            }
+            else {
+              alert('Wrong email or password');
+              return;
+            }
+          }
         }
       });
     });
