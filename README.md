@@ -10,6 +10,7 @@ with each other for Nigerian communities.
 for HION tokens, our currency.
 * Buyers buy HION tokens and can redeem them for power(electricity), or sell them for another
 currency
+*ERC20 Token: https://ropsten.etherscan.io/token/0xf9efd52886b46f64a6b6c8a989d76f5570c9b4aa
 
 ## Built With
 
