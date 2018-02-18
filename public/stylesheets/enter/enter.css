@@ -1,0 +1,52 @@
+/* Beginning */
+
+html, body{
+  overflow-x: hidden;
+  background: #f8f9fa;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Navbar Stage */
+
+.container .navbar-brand {
+  font-size: 3em;
+}
+
+/* Stage One */
+
+#one{
+  height: 600px;
+  background-image: url(/images/homeOne.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#one h1 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+#one h1 span {
+  font-size: 125%;
+  color: rgb(253, 195, 67);
+
+}
+
+#one .firstOne{
+  padding-top: 12.5%;
+}
+
+/* Footer */
+
+.footer {
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3em;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+}
