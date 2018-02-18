@@ -30,8 +30,6 @@ var express = require('express'),
     });
 
     app.get('/user', function(req, res){
-      con.connect(function(err) {
-      if (err) throw err;
       con.query("SELECT * FROM users WHERE Name = 'Ogechi Duru'", function (err, result, fields) {
         if (err) throw err;
         var user = result[0];
@@ -41,11 +39,10 @@ var express = require('express'),
         });
       });
     });
-    });
 
-    app.get('/enter', function(req, res){
-      res.render("enter");
-    });
+    // app.get('/enter', function(req, res){
+    //   res.render("enter");
+    // });
 
     app.post('/register', function(req, res){
       con.query("SELECT Email FROM users", function(err, result, fields){
@@ -54,7 +51,8 @@ var express = require('express'),
         } else {
           for(var i = 0; i < result.length; i++){
             if(result[i]['Email'] == req.body.newUser.email){
-              alert('Email already exists');
+              //alert('Email already exists');
+              res.redirect("enter");
               return;
             }
           }
@@ -64,7 +62,7 @@ var express = require('express'),
           let password = req.body.newUser.password;
 
 
-          con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Passwords`) VALUES ("+name+", "+location+", "+email+", "+password+")");
+          con.query("INSERT INTO `users` (`Name`, `Location`, `Email`, `Passwords`) VALUES ('"+name+"', '"+location+"', '"+email+"', '"+password+"')");
 
           res.redirect("address");
         }
@@ -78,20 +76,26 @@ var express = require('express'),
     });
 
     app.post('/login', function(req, res){
-      con.query("SELECT Email FROM users", function(err, result, fields){
+      con.query("SELECT * FROM users", function(err, result, fields){
         if(err){
           throw err;
         } else {
           for(var i = 0; i < result.length; i++){
-            if(result[i]['Email'] == req.body.newUser.email){
-              var name = request.body.newUser.name;
-              res.render("users", {name : name});
-            }
-            else {
-              alert('Wrong email or password');
-              return;
+            if(result[i]['Email'] == req.body.newUser.emaillogin){
+              if(result[i]['Passwords'] == req.body.newUser.passwordlogin){
+                var user = result[i];
+                con.query("SELECT * FROM users WHERE NOT Name = '"+result[i]['Name']+"'", function (err, result, fields) {
+                  var neighbors = result;
+                  console.log(neighbors);
+                  //res.render('user', {user : user, neighbors: neighbors});
+                  res.redirect
+                  return 0;
+                });
+              }
             }
           }
+          res.redirect("enter");
+          //alert('Wrong email or password');
         }
       });
     });
