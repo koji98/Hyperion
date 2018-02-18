@@ -27,13 +27,15 @@ var express = require('express'),
     });
 
     app.get('/user', function(req, res){
-      var user = "";
       con.connect(function(err) {
       if (err) throw err;
       con.query("SELECT * FROM users WHERE Name = 'Ogechi Duru'", function (err, result, fields) {
         if (err) throw err;
-        user = result[0];
-        res.render('user', {user : user});
+        var user = result[0];
+        con.query("SELECT * FROM users WHERE NOT Name = '"+result[0]['Name']+"'", function (err, result, fields) {
+          var neighbors = result;
+          res.render('user', {user : user, neighbors: neighbors});
+        });
       });
     });
     });

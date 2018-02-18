@@ -1,0 +1,138 @@
+/* Beginning */
+
+html, body{
+  overflow-x: hidden;
+  background: #f8f9fa;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Navbar Stage */
+
+.navbar-brand {
+  font-size: 3em;
+  text-align: center;
+}
+
+.box {
+  text-align: center;
+  background-color: #009688;
+}
+
+/* Stage One */
+
+#one{
+  height: 800px;
+}
+
+#one h1 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+#one h1 span {
+  font-size: 125%;
+  color: rgb(253, 195, 67);
+
+}
+
+#one #firstOne{
+  padding-top: 12.5%;
+}
+
+/* Stage Two */
+
+#two {
+  height: 800px;
+  background: #f8f9fa;
+
+}
+
+#two #firstTwo{
+  padding-top: 10%;
+}
+
+.neighbor {
+  margin: 0 auto;
+}
+
+/* Stage Three */
+
+#three{
+  height: 800px;
+  background-image: url(/images/homeThree.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+
+#three #firstThree {
+  padding-top: 10%;
+  font-size: 5em;
+  margin-bottom: 5%;
+}
+
+#three #threeOne {
+  margin: 0 auto;
+  padding: 0;
+}
+
+#three #threeOne .space{
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin-left: 5%;
+  margin-bottom: 2.5% !important;
+  background: rgba(50, 50, 50, 0);
+}
+
+/* Stage Four */
+
+#four{
+  height: 800px;
+  background: #f8f9fa;
+}
+
+#four h1 {
+  padding-top: 10%;
+  font-size: 5em;
+}
+
+#four span {
+  font-style: italic;
+}
+
+#four p {
+  font-size: 20px;
+}
+
+#four .btn-lg {
+  margin: 0 auto;
+  margin-top: 40px !important;
+  padding: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 2em;
+}
+
+#four #firstFour {
+  padding-top: 25px;
+}
+
+/* Footer */
+
+.footer {
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3em;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+}
